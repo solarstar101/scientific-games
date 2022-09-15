@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import logo from './logo.svg';
-import './App.css';
 import { useSingleRecentDrawQuery } from '../src/services/draws'
 import { usePastDrawsStartingPointQuery } from "../src/services/draws";
 
