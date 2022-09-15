@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useSingleRecentDrawQuery } from '../src/services/draws'
 import { usePastDrawsStartingPointQuery } from "../src/services/draws";
 import {Container,Row,Col} from 'react-bootstrap';
+import {rowGenerator} from '../src/utils/rowGenerator'
+import KinoCard from './components/KinoCard'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -49,17 +51,18 @@ function App() {
   }, [completedrawdata]);
 
 
-
-  const rows = [...Array( Math.ceil(completeData.length / 5) )];
-  const KinoRows = rows.map((row, idx) =>(completeData.slice(idx * 5, idx * 5 + 5) ));
-  // map the rows as div.row
-
-
   return (
-    <Container>
-      {!completedDrawLoading && completeData.length >= 1 && KinoRows.map((row, idx) => (
-  <Row>    
-    { row.map( (obj:any) => <Col key={obj.gameNumber}>{ obj.gameNumber }</Col> )}
+    <Container style={{marginBottom:'2rem'}} fluid={'xxl'}>
+      {!completedDrawLoading && completeData.length >= 1 && rowGenerator(completeData,5).map((row, idx) => (
+  <Row key={idx}>    
+    { row.map( (obj:any) => <Col key={obj.gameNumber}>
+      
+      
+    <KinoCard gameNumber={obj.gameNumber} date={`${obj.gameDate.m}/${obj.gameDate.d}/${obj.gameDate.year}`} drawNumbers={obj.drawNumbers}/>
+    
+    
+    
+    </Col> )}
   </Row> 
 ))}
     {completeDataLoading && <h2>LOADING NEW DATA</h2>}
