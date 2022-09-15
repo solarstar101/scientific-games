@@ -6,11 +6,12 @@ type Props = {
   gameNumber: string;
   date?: string;
   drawNumbers?: any
+  onClick?: () => void;
 }
 
-const index = ({ gameNumber, date, drawNumbers }: Props) => {
+const index = ({ onClick, gameNumber, date, drawNumbers }: Props) => {
   return (
-    <Card style={{ width: '100%', margin: '2rem' }}>
+    <Card onClick={onClick}  style={{ width: '100%', margin: '2rem', cursor: "pointer" }}>
       <Card.Header>
         <Stack direction="horizontal" gap={1}>
           <div className="bg-light border">
@@ -24,7 +25,6 @@ const index = ({ gameNumber, date, drawNumbers }: Props) => {
 
       </Card.Header>
       <Card.Body>
-        <Card.Text>
           {rowGenerator(drawNumbers, 5).map((row, idx) =>
 
           (
@@ -41,7 +41,6 @@ const index = ({ gameNumber, date, drawNumbers }: Props) => {
           )
 
           )}
-        </Card.Text>
       </Card.Body>
     </Card>
   )

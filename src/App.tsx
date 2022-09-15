@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useSingleRecentDrawQuery } from '../src/services/draws'
 import { usePastDrawsStartingPointQuery } from "../src/services/draws";
-import {Container,Row,Col} from 'react-bootstrap';
-import {rowGenerator} from '../src/utils/rowGenerator'
+import { Container, Row, Col } from 'react-bootstrap';
+import { rowGenerator } from '../src/utils/rowGenerator'
 import KinoCard from './components/KinoCard'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -13,6 +13,8 @@ function App() {
     number: 0,
     sort: ''
   })
+  const [show, setShow] = useState(false);
+
   const [completeData, setcompleteData]: any = useState([])
   const [completeDataLoading, setcompleteDataLoading]: any = useState(false)
 
@@ -36,7 +38,7 @@ function App() {
       setcompleteDataLoading(false)
 
     }
-  }, [completeData,completedrawdata,completedDrawLoading])
+  }, [completedrawdata, completedDrawLoading])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -52,20 +54,18 @@ function App() {
 
 
   return (
-    <Container style={{marginBottom:'2rem'}} fluid={'xxl'}>
-      {!completedDrawLoading && completeData.length >= 1 && rowGenerator(completeData,5).map((row, idx) => (
-  <Row key={idx}>    
-    { row.map( (obj:any) => <Col key={obj.gameNumber}>
-      
-      
-    <KinoCard gameNumber={obj.gameNumber} date={`${obj.gameDate.m}/${obj.gameDate.d}/${obj.gameDate.year}`} drawNumbers={obj.drawNumbers}/>
-    
-    
-    
-    </Col> )}
-  </Row> 
-))}
-    {completeDataLoading && <h2>LOADING NEW DATA</h2>}
+    <Container style={{ marginBottom: '2rem' }} fluid={'xxl'}>
+      {!completedDrawLoading && completeData.length >= 1 && rowGenerator(completeData, 5).map((row, idx) => (
+        <Row key={idx}>
+          {row.map((obj: any) => <Col key={obj.gameNumber}>
+
+            <KinoCard onClick={() => console.log('click is working')} gameNumber={obj.gameNumber} date={`${obj.gameDate.m}/${obj.gameDate.d}/${obj.gameDate.year}`} drawNumbers={obj.drawNumbers} />
+
+
+          </Col>)}
+        </Row>
+      ))}
+      {completeDataLoading && <h2>LOADING NEW DATA</h2>}
     </Container>
   );
 }
