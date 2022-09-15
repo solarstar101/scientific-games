@@ -2,24 +2,43 @@ import { Modal } from 'react-bootstrap';
 import KinoCard from '../KinoCard/index'
 import React from 'react'
 
-type Props = {show:boolean, setShow:(boolean:boolean) => void}
+type Props = {
+    data: {
+        gameNumber?: any,
+        gameDate?: any,
+        drawNumbers?: []
+    }, show: boolean, setShow: ({ display, data }: {
+        display: boolean, data: {
+            gameNumber?: any,
+            gameDate?: any,
+            drawNumbers?: []
+        }
+    }) => void
+}
 
 
 
-const index = ({show,setShow}: Props) => {
+const index = ({ show, setShow, data }: Props) => {
 
-const handleClose = () => setShow(false);
+    const handleClose = () => setShow({
+        display: false,
+        data: {
+            gameNumber: '',
+            gameDate: '',
+            drawNumbers: []
+        }
+    });
 
-  return (
-    <Modal show={show} onHide={handleClose}>
+    return (
+        <Modal show={show} onHide={handleClose}>
 
-    <Modal.Body>
-    {/* <KinoCard gameNumber={obj.gameNumber} date={`${obj.gameDate.m}/${obj.gameDate.d}/${obj.gameDate.year}`} drawNumbers={obj.drawNumbers} /> */}
+            <Modal.Body>
+                <KinoCard gameNumber={data.gameNumber} date={`${data.gameDate.m}/${data.gameDate.d}/${data.gameDate.year}`} drawNumbers={data.drawNumbers} />
 
-    </Modal.Body>
-   
-  </Modal>
-  )
+            </Modal.Body>
+
+        </Modal>
+    )
 }
 
 export default index

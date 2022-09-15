@@ -7,11 +7,12 @@ type Props = {
   date?: string;
   drawNumbers?: any
   onClick?: () => void;
+  className?: any;
 }
 
-const index = ({ onClick, gameNumber, date, drawNumbers }: Props) => {
+const index = ({ onClick, gameNumber, date, drawNumbers,className }: Props) => {
   return (
-    <Card onClick={onClick}  style={{ width: '100%', margin: '2rem', cursor: "pointer" }}>
+    <Card className={className} onClick={onClick}  style={{ width: '100%', marginTop: '1rem', marginBottom:'1rem', cursor: "pointer" }}>
       <Card.Header>
         <Stack direction="horizontal" gap={1}>
           <div className="bg-light border">
