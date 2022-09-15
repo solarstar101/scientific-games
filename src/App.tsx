@@ -16,15 +16,15 @@ function App() {
   const [completeData, setcompleteData]: any = useState([])
   const [completeDataLoading, setcompleteDataLoading]: any = useState(false)
 
-  const { data: singleRecentDraw, error: singleRecentDrawError, isLoading: singleRecentDrawLoading } = useSingleRecentDrawQuery()
-  const { data: completedrawdata, error: completedDrawError, isLoading: completedDrawLoading } = usePastDrawsStartingPointQuery(drawQuery,
+  const { data: singleRecentDraw, isLoading: singleRecentDrawLoading } = useSingleRecentDrawQuery()
+  const { data: completedrawdata, isLoading: completedDrawLoading } = usePastDrawsStartingPointQuery(drawQuery,
     {
       skip: drawQuery.drawid === '' && drawQuery.number === 0 && drawQuery.sort === '',
       refetchOnMountOrArgChange: true
     });
 
   useEffect(() => {
-    if (!singleRecentDrawLoading && !singleRecentDrawError) {
+    if (!singleRecentDrawLoading) {
       setcompleteDataLoading(true)
       setDrawQuery({ drawid: singleRecentDraw[0].gameNumber, number: 20, sort: 'dsc' })
     }
@@ -36,7 +36,7 @@ function App() {
       setcompleteDataLoading(false)
 
     }
-  }, [completedrawdata])
+  }, [completedrawdata,completedDrawLoading])
 
   useEffect(() => {
     const handleScroll = () => {

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Row, Col, Card, Stack } from 'react-bootstrap';
+import { Row, Col, Card, Stack } from 'react-bootstrap';
 import { rowGenerator } from '../../utils/rowGenerator'
 
 type Props = {
