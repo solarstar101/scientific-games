@@ -36,7 +36,7 @@ function App() {
       setcompleteDataLoading(false)
 
     }
-  }, [completedrawdata,completedDrawLoading])
+  }, [completeData,completedrawdata,completedDrawLoading])
 
   useEffect(() => {
     const handleScroll = () => {
