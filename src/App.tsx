@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useSingleRecentDrawQuery } from '../src/services/draws'
 import { usePastDrawsStartingPointQuery } from "../src/services/draws";
+import {Container,Row,Col} from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function App() {
   const [drawQuery, setDrawQuery] = useState({
@@ -46,17 +49,21 @@ function App() {
   }, [completedrawdata]);
 
 
+
+  const rows = [...Array( Math.ceil(completeData.length / 5) )];
+  const KinoRows = rows.map((row, idx) =>(completeData.slice(idx * 5, idx * 5 + 5) ));
+  // map the rows as div.row
+
+
   return (
-    <div className="App">
-      {!completedDrawLoading && completeData.length >= 1 && completeData.map((obj: any) =>
-        <h1>
-          {obj.gameNumber}
-        </h1>
-      )}
-      {completeDataLoading && <h2>LOADING NEW DATA</h2>}
-
-
-    </div>
+    <Container>
+      {!completedDrawLoading && completeData.length >= 1 && KinoRows.map((row, idx) => (
+  <Row>    
+    { row.map( (obj:any) => <Col key={obj.gameNumber}>{ obj.gameNumber }</Col> )}
+  </Row> 
+))}
+    {completeDataLoading && <h2>LOADING NEW DATA</h2>}
+    </Container>
   );
 }
 
