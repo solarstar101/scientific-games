@@ -1,0 +1,8 @@
+.kinoModalCard {
+  width: 100%;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  justify-content: center;
+  background-color: #02a8f4 !important;
+  color: black;
+}

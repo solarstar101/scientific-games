@@ -1,0 +1,45 @@
+.mainCard {
+  border-bottom-style: solid;
+  border-bottom-color: white !important;
+}
+
+.kinoCardHeader {
+  color: black !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  margin: auto;
+  font-weight: bold;
+}
+
+.kinoCardHeaderText {
+  color: white;
+  margin: 0 !important;
+  font-size: larger;
+}
+
+.kinoNumberBalls {
+  text-align: center;
+  height: 25px;
+  width: 25px;
+  margin-bottom: 0.5rem;
+  background-color: white;
+  border-radius: 45%;
+  display: inline-block;
+}
+
+.kinoCol {
+  justify-content: center !important;
+  align-items: center !important;
+  display: flex !important;
+}
+
+.loadingCard {
+  width: "100%";
+  min-width: "15rem";
+  height: "15rem";
+  margin-top: "1rem";
+  margin-bottom: "1rem";
+  cursor: "pointer";
+}
