@@ -1,5 +1,11 @@
 [[redirects]]
-  from = "/*"
+  from = "/api/"
   to = "https://puertorico.secondchancebonuszone.com"
   status = 200
   force = true
+
+
+  [[redirects]]
+  from = “/*”
+  to = “/index.html”
+  status = 200
