@@ -5,7 +5,7 @@ export const drawApiRecent = createApi({
   reducerPath: "drawApiRecent",
   baseQuery: fetchBaseQuery({
     baseUrl:
-      "https://puertorico.secondchancebonuszone.com/kino/past_drawings.php",
+      "https://cors-anywhere.herokuapp.com/https://puertorico.secondchancebonuszone.com/kino/past_drawings.php",
   }),
   endpoints: (builder) => ({
     singleRecentDraw: builder.query<any, string>({
@@ -29,7 +29,7 @@ export const drawApiDrawID = createApi({
 
   baseQuery: fetchBaseQuery({
     baseUrl:
-      "https://puertorico.secondchancebonuszone.com/kino/past_drawings.php",
+      "https://cors-anywhere.herokuapp.com/https://puertorico.secondchancebonuszone.com/kino/past_drawings.php",
   }),
   endpoints: (builder) => ({
     pastDrawsStartingPoint: builder.mutation({
