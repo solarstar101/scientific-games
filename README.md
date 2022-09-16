@@ -1,6 +1,16 @@
-# Getting Started with Create React App
+# Scientific Games Assessment
+
+
+Important Note: 
+In order to get past a cors issue without having to write my own express middleman i have opted to use this to access the endpoint
+https://cors-anywhere.herokuapp.com/
+you will need to visit the link and get granted permission if not you will receive a cors error on the network both on netlify and on localhost when you clone the project (sorry this occured to me after the project had been submitted with no time to correct it so this was a quick patch)
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) TS template.
+
+![image](https://user-images.githubusercontent.com/45614244/190577749-60bc97a7-f027-452f-acad-636d303514a3.png)
+
 
 ## Available Scripts
 
