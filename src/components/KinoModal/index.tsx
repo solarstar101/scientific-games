@@ -30,14 +30,15 @@ const index = ({ show, setShow, data }: Props) => {
     });
 
     return (
-        <Modal show={show} onHide={handleClose}>
-
-            <Modal.Body>
-                <KinoCard gameNumber={data.gameNumber} date={`${data.gameDate.m}/${data.gameDate.d}/${data.gameDate.year}`} drawNumbers={data.drawNumbers} />
-
-            </Modal.Body>
-
-        </Modal>
+        <>
+            {show &&
+                <Modal show={show} onHide={handleClose}>
+                    <Modal.Body>
+                        <KinoCard gameNumber={data.gameNumber} date={`${data.gameDate.m}/${data.gameDate.d}/${data.gameDate.year}`} drawNumbers={data.drawNumbers} />
+                    </Modal.Body>
+                </Modal>
+            }
+        </>
     )
 }
 

@@ -1,4 +1,4 @@
-export const rowGenerator = (data : [],rownumber: number) => {
+export const rowGenerator = (data : any[],rownumber: number) => {
     const rows = [...Array( Math.ceil(data.length / rownumber) )];
 
 
