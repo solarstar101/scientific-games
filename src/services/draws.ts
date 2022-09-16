@@ -4,7 +4,6 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const drawApiRecent = createApi({
   reducerPath: "drawApiRecent",
   baseQuery: fetchBaseQuery({
-    mode: "cors",
     baseUrl:
       "https://puertorico.secondchancebonuszone.com/kino/past_drawings.php",
   }),
@@ -29,7 +28,6 @@ export const drawApiDrawID = createApi({
   reducerPath: "drawApiById",
 
   baseQuery: fetchBaseQuery({
-    mode: "cors",
     baseUrl:
       "https://puertorico.secondchancebonuszone.com/kino/past_drawings.php",
   }),
