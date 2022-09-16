@@ -1,6 +1,7 @@
 {
   "name": "assessment-scientific-games",
   "version": "0.1.0",
+  "proxy":"https://visionary-pie-8f1061.netlify.app/",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.5",
