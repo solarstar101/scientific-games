@@ -36,10 +36,9 @@
 }
 
 .loadingCard {
-  width: "100%";
-  min-width: "15rem";
-  height: "15rem";
-  margin-top: "1rem";
-  margin-bottom: "1rem";
-  cursor: "pointer";
+  width: 100%;
+  min-width: 15rem;
+  height: 15rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
